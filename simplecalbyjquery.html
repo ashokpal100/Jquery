@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+</head>
+<script type="text/javascript">
+
+$(document).ready(function()
+{
+      $(function() 
+      {
+         var input = $('input');
+         var equals = $('[name="equals"]');
+
+/*when a button with the 'num-button' class is clicked,
+adds the number of the button via its name to the inputs value*/
+$('.num-button').on('click', function() {
+    input.val(input.val() + $(this).attr('name'));
+});
+
+/*when a button with the 'operation' class is clicked,
+check if the subtract button was clicked while input field
+is empty, if so add - to input value, if not add inputs value
+to the inputs name attribute, then remove any classes attached
+to the equals button (if any) and then add the operation buttons
+name to the equals button as a class */
+$('.operation').on('click', function() 
+{
+    var opName = $(this).attr('name');
+    if (opName == 'subtract' && input.val().length == 0) 
+    {
+        input.val('-');
+    } else {
+        input.attr('name', input.val());
+        input.val('');
+        equals.removeClass();
+        equals.addClass(opName);
+    }
+});
+
+/*when the equals button is clicked check to find out
+what the equal buttons class is, then get the values from
+the inputs attribute that we converted to a name (above),
+then get the current input value, then convert those string
+values to floated numbers and follow with the appropriate
+math operation for the two floated numbers*/
+equals.on('click', function() 
+{
+    var firstInput;
+    var secondInput;
+    if (equals.hasClass('add')) 
+    {
+        firstInput = parseFloat(input.attr('name'));
+        secondInput = parseFloat(input.val());
+        input.val(firstInput + secondInput);
+    } 
+    else if (equals.hasClass('subtract')) 
+    {
+        firstInput = parseFloat(input.attr('name'));
+        secondInput = parseFloat(input.val());
+        input.val(firstInput - secondInput);
+    } 
+    else if (equals.hasClass('multiply'))
+     {
+        firstInput = parseFloat(input.attr('name'));
+        secondInput = parseFloat(input.val());
+        input.val(firstInput * secondInput);
+    } 
+    else if (equals.hasClass('divide')) 
+    {
+        firstInput = parseFloat(input.attr('name'));
+        secondInput = parseFloat(input.val());
+        input.val(firstInput / secondInput);
+    }
+});
+
+//clears input field when clear button is clicked
+$('.clear').on('click', function () 
+{
+    input.val('');
+});
+});
+});
+</script>
+<body>
+    <section>
+        <h1>Calculator</h1>
+        <table>
+            <input size="10"></input>
+            <tr>
+                <td><button name="1" class="num-button">1</button></td>
+                <td><button name="2" class="num-button">2</button></td>
+                <td><button name="3" class="num-button">3</button></td>
+                <td><button name="add" class="operation">+</button></td>
+            </tr>
+            <tr>
+                <td><button name="4" class="num-button">4</button></td>
+                <td><button name="5" class="num-button">5</button></td>
+                <td><button name="6" class="num-button">6</button></td>
+                <td><button name="subtract" class="operation">-</button></td>
+            </tr>
+            <tr>
+                <td><button name="7" class="num-button">7</button></td>
+                <td><button name="8" class="num-button">8</button></td>
+                <td><button name="9" class="num-button">9</button></td>
+                <td><button name="multiply" class="operation">x</button></td>
+            </tr>
+            <tr>
+                <td><button name="0" class="num-button">0</button></td>
+                <td><button name="." class="num-button">.</button></td>
+                <td><button name="equals">=</button></td>
+                <td><button name="divide" class="operation">/</button></td>
+            </tr>
+        </table>
+        <button class="clear">Clear</button>
+    </section> 
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>form Example</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="formstyle1.css">
+</head>
+
+<script src="contactformbyjquery.js"></script>
+
+<body>
+
+<div class="container">
+    <div class="row">
+    	<div class="col-md-3 col-xs-0"></div>
+        <div class="col-md-5 col-xs-12 stl">
+        	<div class="row"><h2>Student Contact form</h2></div>
+        	<div class="row">
+        		<form class="dark-matter">
+    			<label>
+       				 Your Name <input id="name" type="text" name="name" placeholder="Your Full Name" />
+    			</label>
+    			<label><span>
+        			Gender </span>
+       				 &nbsp;&nbsp;<input id="radioGenValue1" type="radio" name="radio"value="Male" checked/>&nbsp;&nbsp;Male&nbsp;&nbsp;
+       				 &nbsp;&nbsp;<input id="radioGenValue2" type="radio" name="radio"value="Female"/>&nbsp;&nbsp;Female
+    			</label>
+    			<label><br>
+        				<span>Email </span><input id="email" type="text" name="email" placeholder="Valid Email Address" />
+    			</label>
+    			<label>
+      				  <span>Subject </span>
+                            <input type="checkbox" name="checkbox1" class = "chk" id="checkSubValue1" value="c" checked>&nbsp;&nbsp;C
+                            <input type="checkbox" name="checkbox1" class = "chk" id="checkSubValue2" value="c++">&nbsp;&nbsp;&nbsp;&nbsp;C++
+                            <input type="checkbox" name="checkbox1" class = "chk" id="checkSubValue3" value="java">&nbsp;&nbsp;&nbsp;&nbsp;Java
+    			</label> <br>
+    			<label>
+        			<span>Address </span>
+        			<textarea id="address" name="message" placeholder="Your Address"></textarea>
+    			</label> 
+    			 <label>
+        			<span>Year </span><select name="selection" id="year">
+        				<option value="select">Select</option>
+        				<option value="2015">2015</option>
+        				<option value="2016" checked>2016</option>
+        				</select>
+    			</label>    
+     			<label>
+       				 <span>&nbsp;</span> 
+        					<p align="left"><button type="button" class="button" value="Submit" id="buttonId1">Submit</button></p> 
+    			</label>    
+				</form></div>
+       </div>
+        <div class="col-md-3 col-xs-0">
+
+    </div>
+  </div></div>
+</body>
+</html>
